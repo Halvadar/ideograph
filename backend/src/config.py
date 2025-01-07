@@ -6,6 +6,10 @@ class Settings(BaseSettings):
     API_V1_PREFIX: str = "/api/v1"
     PROJECT_NAME: str = "AI Discussion Graph"
     
+    # Model Configuration
+    MODEL_NAME: str = "gpt-3.5-turbo"
+    OPENAI_API_KEY: str
+    
     # CORS Configuration
     BACKEND_CORS_ORIGINS: list[str] = [
         "http://localhost:3000",  # Next.js dev server
