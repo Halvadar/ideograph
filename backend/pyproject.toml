@@ -1,9 +1,10 @@
-[tool.poetry]
+[project]
 name = "ideograph"
 version = "0.1.0"
 description = ""
-authors = ["Halvadar <Levanbaidoshvili@gmail.com>"]
+authors = [{ name = "Halvadar", email = "Levanbaidoshvili@gmail.com" }]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -13,7 +14,7 @@ uvicorn = "^0.34.0"
 python-dotenv = "^1.0.1"
 pydantic = "^2.6.1"
 pydantic-settings = "^2.1.0"
-langchain-openai = "^0.2.14"
+langchain-openai = "^0.3.0"
 
 [build-system]
 requires = ["poetry-core"]

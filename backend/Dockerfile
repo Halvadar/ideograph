@@ -7,15 +7,14 @@ WORKDIR /app
 RUN pip install poetry
 
 # Copy poetry files
-COPY pyproject.toml ./
+COPY pyproject.toml poetry.lock* README.md ./
 # Copy lock file if it exists, otherwise it will be generated
-COPY poetry.lock* ./
 
 # Configure poetry to not create a virtual environment
 RUN poetry config virtualenvs.create false
 
 # Install dependencies (and generate lock file if missing)
-RUN if [ ! -f poetry.lock ]; then poetry lock; fi && poetry install
+RUN if [ ! -f poetry.lock ]; then poetry lock; fi && poetry install --no-root
 
 # Copy application code
 COPY . .
@@ -29,8 +28,7 @@ WORKDIR /app
 RUN pip install poetry
 
 # Copy poetry files
-COPY pyproject.toml ./
-COPY poetry.lock* ./
+COPY pyproject.toml poetry.lock* README.md ./
 
 # Configure poetry to not create a virtual environment
 RUN poetry config virtualenvs.create false
